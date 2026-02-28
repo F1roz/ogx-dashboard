@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oGX Department Dashboard · AIESEC</title>
+    <!-- simple modern font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        /* style.css — inline for simplicity, but can be moved to external file */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f7fc; /* very light blue background */
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #1e2b3c;
+            line-height: 1.5;
+            padding: 24px 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ----- HEADER ----- */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            background: white;
+            padding: 16px 28px;
+            border-radius: 40px;
+            box-shadow: 0 8px 18px -6px rgba(0, 70, 150, 0.08);
+            border: 1px solid rgba(0, 105, 180, 0.1);
+        }
+
+        .logo {
+            background-color: #0373b3; /* AIESEC blue */
+            color: white;
+            font-weight: 700;
+            font-size: 1.6rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,67,126,0.2);
+        }
+        .logo span {
+            transform: scale(1.2);
+            letter-spacing: -1px;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #0a2942;
+            letter-spacing: -0.02em;
+        }
+        .header h1 small {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #4f6f8f;
+            margin-left: 10px;
+        }
+
+        /* ----- section titles ----- */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 36px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #113355;
+            border-left: 7px solid #0373b3;
+            padding-left: 18px;
+        }
+        .section-title i { font-style: normal; font-size: 1.8rem; }
+
+        /* ----- KPI cards (mini stats) ----- */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 28px;
+            padding: 22px 18px;
+            box-shadow: 0 5px 16px rgba(0, 45, 80, 0.05);
+            transition: 0.2s;
+            border: 1px solid #eef3fa;
+            text-align: center;
+        }
+        .stat-card:hover { box-shadow: 0 10px 22px rgba(3,115,179,0.08); }
+        .stat-number {
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: #0a2a44;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #4d6a88;
+            font-weight: 500;
+        }
+
+        /* ----- Country / LC section ----- */
+        .country-panel {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 28px 20px 28px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.02);
+            border: 1px solid #e0ecf9;
+            margin-bottom: 30px;
+        }
+        .country-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+        .country-btn {
+            background: #e2edfb;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1a4972;
+            cursor: pointer;
+            transition: 0.15s;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .country-btn:hover {
+            background: #cde0fa;
+            border-color: #80b5e0;
+        }
+        .country-btn.active {
+            background: #0373b3;
+            color: white;
+            box-shadow: 0 5px 10px rgba(3,115,179,0.25);
+        }
+
+        .lc-grid {
+            display: none;  /* hidden by default, toggled by JS */
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            background: #f8fbfe;
+            padding: 24px 20px;
+            border-radius: 40px;
+        }
+        .lc-grid.visible {
+            display: grid;
+        }
+        .lc-btn {
+            background: white;
+            border: 1px solid #cbdbe9;
+            padding: 16px 8px;
+            border-radius: 26px;
+            font-weight: 500;
+            color: #113355;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.1s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .lc-btn:hover {
+            background: #0373b3;
+            border-color: #0373b3;
+            color: white;
+            transform: scale(1.01);
+        }
+
+        /* ----- hub / quick links / calculator (cards) ----- */
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 15px 0 20px 0;
+        }
+        .action-btn {
+            background: white;
+            border: 1px solid #d1e2f2;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            color: #1e4972;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            transition: 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .action-btn:hover {
+            background: #e7f0ff;
+            border-color: #70b0e0;
+        }
+        .special-btn {
+            background: #1b3652;
+            border-color: #1b3652;
+            color: white;
+            font-weight: 600;
+        }
+        .special-btn:hover { background: #12344d; }
+
+        /* ----- R&R highlight card ----- */
+        .spotlight-card {
+            background: linear-gradient(145deg, #fffbf0, #ffffff);
+            border: 2px solid #f5cf7b;
+            border-radius: 38px;
+            padding: 30px 30px;
+            box-shadow: 0 15px 25px -8px rgba(210, 160, 30, 0.15);
+            margin: 30px 0 30px 0;
+        }
+        .gold-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #a56b1a;
+            margin: 10px 0 6px 0;
+        }
+        .achievement-tag {
+            background: #faeec9;
+            padding: 8px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .hall-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+        .hall-list li {
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0d9b0;
+            display: flex;
+            gap: 20px;
+        }
+        .hall-list strong { color: #926d2b; }
+
+        /* announcements & process flow */
+        .announce-card {
+            background: white;
+            border-radius: 28px;
+            padding: 26px 30px;
+            border-left: 8px solid #0373b3;
+            margin: 20px 0 30px 0;
+        }
+        .announce-list {
+            list-style: none;
+        }
+        .announce-list li {
+            margin: 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .announce-list li::before {
+            content: "📢";
+            font-size: 1.2rem;
+        }
+
+        .process-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: white;
+            padding: 30px;
+            border-radius: 60px;
+            justify-content: center;
+            margin: 40px 0 10px 0;
+        }
+        .step {
+            background: #edf4fd;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #113355;
+            cursor: pointer;
+            border: 1px solid #bbd3ed;
+            transition: 0.1s;
+        }
+        .step:hover {
+            background: #0373b3;
+            color: white;
+            border-color: #0373b3;
+        }
+
+        /* responsiveness */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3rem; }
+            .header { padding: 12px 18px; }
+            .gold-name { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard-container">
+
+    <!-- SECTION 1 — HEADER (logo + title) -->
+    <div class="header">
+        <img src="https://aiesec-logos.s3.eu-west-1.amazonaws.com/Blue-Logo.png" alt="AIESEC" style="height: 52px; width: auto;">
+        <h1>oGX Department Dashboard <small>· operations</small></h1>
+    </div>
+
+    <!-- SECTION 2 — KPI CARDS (manual numbers) -->
+    <div class="kpi-grid">
+        <div class="stat-card"><div class="stat-number">128</div><div class="stat-label">Total EP Applied</div></div>
+        <div class="stat-card"><div class="stat-number">97</div><div class="stat-label">Approved</div></div>
+        <div class="stat-card"><div class="stat-number">84</div><div class="stat-label">Matched</div></div>
+        <div class="stat-card"><div class="stat-number">62</div><div class="stat-label">Realized</div></div>
+        <div class="stat-card"><div class="stat-number">48%</div><div class="stat-label">Conversion</div></div>
+    </div>
+
+    <!-- SECTION 3 — COUNTRY → LC (toggle + redirects) -->
+    <div class="section-title">🌍 Country → LC structure</div>
+    <div class="country-panel">
+        <div class="country-buttons">
+            <button class="country-btn active" data-country="turkey">Turkey</button>
+            <button class="country-btn" data-country="poland">Poland</button>
+            <button class="country-btn" data-country="egypt">Egypt</button>
+            <button class="country-btn" data-country="brazil">Brazil</button>
+        </div>
+
+        <!-- Turkey LC (visible by default) -->
+        <div id="turkey-lcs" class="lc-grid visible">
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1TurkeyAnkara">LC Ankara</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1TurkeyIstanbul">LC Istanbul</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1TurkeyIzmir">LC Izmir</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1TurkeyAdana">LC Adana</button>
+        </div>
+        <!-- Poland LC -->
+        <div id="poland-lcs" class="lc-grid">
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1PLWarsaw">LC Warsaw</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1PLKrakow">LC Krakow</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1PLWroclaw">LC Wroclaw</button>
+        </div>
+        <!-- Egypt LC -->
+        <div id="egypt-lcs" class="lc-grid">
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1EGCairo">LC Cairo</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1EGAlex">LC Alexandria</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1EGGiza">LC Giza</button>
+        </div>
+        <!-- Brazil LC -->
+        <div id="brazil-lcs" class="lc-grid">
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1BRSp">LC São Paulo</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1BRRio">LC Rio</button>
+            <button class="lc-btn" data-link="https://docs.google.com/spreadsheets/d/1BRBelo">LC Belo Horizonte</button>
+        </div>
+    </div>
+
+    <!-- SECTION 4 — KNOWLEDGE HUB -->
+    <div class="section-title">📚 Knowledge Hub</div>
+    <div class="button-grid">
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/salescript">📞 Sales Script</button>
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/followup">✉️ Follow-up Script</button>
+        <button class="action-btn" data-link="https://docs.google.com/presentation/d/parent">👪 Parent Convincing</button>
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/visa">🛂 Visa Guide</button>
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/raise">💰 Raise Process</button>
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/interview">🎤 Interview SOP</button>
+    </div>
+
+    <!-- SECTION 5 — EP COST CALCULATOR (button + redirect) -->
+    <div class="section-title">🧮 EP Cost Calculator</div>
+    <div class="button-grid">
+        <button class="action-btn special-btn" data-link="https://docs.google.com/spreadsheets/d/calc-ep">📊 Open EP Calculator (Google Sheet)</button>
+    </div>
+
+    <!-- SECTION 6 — QUICK LINKS (quick access) -->
+    <div class="section-title">⚡ Quick Access</div>
+    <div class="button-grid">
+        <button class="action-btn" data-link="https://expa.aiesec.org">🔑 EXPA Login</button>
+        <button class="action-btn" data-link="https://docs.google.com/spreadsheets/d/tracker">📈 OGX Tracker Sheet</button>
+        <button class="action-btn" data-link="https://docs.google.com/document/d/contract">📄 Contract Template</button>
+        <button class="action-btn" data-link="https://drive.google.com/drive/brand">🎨 Brand Assets</button>
+        <button class="action-btn" data-link="https://drive.google.com/drive/meeting">📁 Meeting Notes Folder</button>
+        <button class="action-btn" data-link="https://globalhub.aiesec.org">🌐 Global Hub</button>
+    </div>
+
+    <!-- SECTION 7 — RnR (Recognition & Rewards) -->
+    <div class="section-title">🌟 Recognition & Rewards</div>
+    <div class="spotlight-card">
+        <h3 style="color:#a16613;">🏆 Top Member of the Week</h3>
+        <div class="gold-name">Elena Varga</div>
+        <div><strong>LC Budapest</strong> · Achievement: 12 realized exchanges in March</div>
+        <div class="achievement-tag">✨ “Elena redefined follow-up speed — incredible dedication!”</div>
+        <div style="margin-top:20px;"><em>– from TL, Márk</em></div>
+
+        <h3 style="margin-top:40px; color:#0a2942;">🥇 Hall of Fame</h3>
+        <ul class="hall-list">
+            <li><strong>Week 10</strong> – Amina El-Sayed (LC Cairo)</li>
+            <li><strong>Week 9</strong>  – Lucas Mendes (LC Rio)</li>
+            <li><strong>Week 8</strong>  – Zeynep Kaya (LC Istanbul)</li>
+            <li><strong>Week 7</strong>  – Kacper Nowak (LC Warsaw)</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 8 — ANNOUNCEMENTS (important updates) -->
+    <div class="section-title">📌 Important Updates</div>
+    <div class="announce-card">
+        <ul class="announce-list">
+            <li><strong>Raise deadline:</strong> 12 March (extended)</li>
+            <li><strong>New IR partner added:</strong> EduAbroad</li>
+            <li><strong>Interview policy updated:</strong> requires ID verification</li>
+            <li><strong>OGX training:</strong> 20 March, 7pm CET</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 9 — PROCESS FLOW (clickable steps) -->
+    <div class="section-title">🔄 Process flow (click to open SOP)</div>
+    <div class="process-row">
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/apply">📋 Apply</button>
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/interview-sop">🎙️ Interview</button>
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/approve">✅ Approve</button>
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/match">🤝 Match</button>
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/raise-sop">💸 Raise</button>
+        <button class="step" data-link="https://docs.google.com/spreadsheets/d/realize">🌍 Realize</button>
+    </div>
+
+    <!-- tiny spacer -->
+    <div style="height: 40px;"></div>
+</div>
+
+<!-- very simple JavaScript (script.js) — show/hide + redirects -->
+<script>
+    (function() {
+        // ------ 1) Country -> LC toggle ------
+        const countryBtns = document.querySelectorAll('.country-btn');
+        const lcContainers = {
+            turkey: document.getElementById('turkey-lcs'),
+            poland: document.getElementById('poland-lcs'),
+            egypt: document.getElementById('egypt-lcs'),
+            brazil: document.getElementById('brazil-lcs')
+        };
+
+        // hide all LC grids, then show active country
+        function showCountryLcs(countryId) {
+            Object.values(lcContainers).forEach(grid => {
+                if (grid) grid.classList.remove('visible');
+            });
+            if (lcContainers[countryId]) {
+                lcContainers[countryId].classList.add('visible');
+            }
+            // update active button style
+            countryBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.country === countryId) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // add event listeners to country buttons
+        countryBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const country = e.currentTarget.dataset.country;
+                if (country) showCountryLcs(country);
+            });
+        });
+
+        // ensure Turkey active on page load (already set in HTML, but sync)
+        showCountryLcs('turkey');
+
+        // ------ 2) Redirect for any button with data-link (LC, hub, quick, steps, calculator...) ------
+        function handleRedirect(event) {
+            const btn = event.currentTarget;
+            const link = btn.getAttribute('data-link');
+            if (link) {
+                // Simple redirect — all links are manual google sheets / slides / etc.
+                window.location.href = link;
+            } else {
+                console.warn('no data-link found');
+            }
+        }
+
+        // attach to all .lc-btn, .action-btn, .step
+        document.querySelectorAll('.lc-btn, .action-btn, .step').forEach(btn => {
+            btn.addEventListener('click', handleRedirect);
+        });
+
+        // additionally, you might want any generic button with data-link to work
+        // (all relevant ones already covered)
+
+        // small extra: if any button missing data-link but still should do nothing — it's fine.
+        // All buttons we want to redirect have data-link attribute set manually (as per prompt).
+    })();
+</script>
+
+<!-- hardcoded links are visible in HTML; perfect for manual editing. 
+     no frameworks, no APIs, only simple JS for toggle + redirect.  -->
+</body>
+</html>
