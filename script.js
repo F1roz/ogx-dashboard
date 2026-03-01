@@ -1,9 +1,9 @@
-// script.js
+// script.js - with unique dummy links for each LC's programs
 
 (function() {
     // ---------- MASTER COUNTRY LIST (exactly as provided) ----------
     const countryList = [
-        "Australia", "Cambodia", "Hong Kong", "India",
+        "Australia", "Bangladesh", "Cambodia", "Hong Kong", "India",
         "Indonesia", "Japan", "Korea", "Mainland of China", "Malaysia",
         "Mongolia", "Myanmar", "Nepal", "New Zealand", "Pakistan",
         "Philippines", "Singapore", "Sri Lanka", "Taiwan", "Thailand",
@@ -12,9 +12,9 @@
     ];
 
     // ---------- LC DATA (some LCs per country; feel free to edit) ----------
-    // For demo, each country gets 2–4 LCs. For countries not specified, we add generic ones.
     const countryLCs = {
         "Australia": ["LC Sydney", "LC Melbourne", "LC Brisbane"],
+        "Bangladesh": ["LC Dhaka", "LC Chittagong", "LC NSU", "LC AIUB", "LC North South"],
         "Cambodia": ["LC Phnom Penh", "LC Siem Reap"],
         "Hong Kong": ["LC Hong Kong", "LC Kowloon"],
         "India": ["LC Delhi", "LC Mumbai", "LC Bangalore", "LC Chennai"],
@@ -44,11 +44,399 @@
         "USA": ["LC New York", "LC San Francisco", "LC Chicago", "LC Boston"]
     };
 
+    // ---------- UNIQUE DUMMY LINKS FOR EACH LC's PROGRAMS ----------
+    // This object contains different dummy Google Sheet links for each LC's iGV, iGTa, and iGTe
+    const lcProgramLinks = {
+        // Australia
+        "LC Sydney": {
+            iGV: "https://docs.google.com/spreadsheets/d/1sydney-igv-2024-dummy",
+            iGTa: "https://docs.google.com/spreadsheets/d/1sydney-igta-2024-dummy",
+            iGTe: "https://docs.google.com/spreadsheets/d/1sydney-igte-2024-dummy"
+        },
+        "LC Melbourne": {
+            iGV: "https://docs.google.com/spreadsheets/d/2melbourne-igv-2024-dummy",
+            iGTa: "https://docs.google.com/spreadsheets/d/2melbourne-igta-2024-dummy",
+            iGTe: "https://docs.google.com/spreadsheets/d/2melbourne-igte-2024-dummy"
+        },
+        "LC Brisbane": {
+            iGV: "https://docs.google.com/spreadsheets/d/3brisbane-igv-2024-dummy",
+            iGTa: "https://docs.google.com/spreadsheets/d/3brisbane-igta-2024-dummy",
+            iGTe: "https://docs.google.com/spreadsheets/d/3brisbane-igte-2024-dummy"
+        },
+        // Bangladesh
+        "LC Dhaka": {
+            iGV: "https://docs.google.com/spreadsheets/d/bd-dhaka-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/bd-dhaka-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/bd-dhaka-igte-2024"
+        },
+        "LC Chittagong": {
+            iGV: "https://docs.google.com/spreadsheets/d/bd-ctg-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/bd-ctg-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/bd-ctg-igte-2024"
+        },
+        "LC NSU": {
+            iGV: "https://docs.google.com/spreadsheets/d/bd-nsu-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/bd-nsu-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/bd-nsu-igte-2024"
+        },
+        "LC AIUB": {
+            iGV: "https://docs.google.com/spreadsheets/d/bd-aiub-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/bd-aiub-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/bd-aiub-igte-2024"
+        },
+        "LC North South": {
+            iGV: "https://docs.google.com/spreadsheets/d/bd-northsouth-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/bd-northsouth-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/bd-northsouth-igte-2024"
+        },
+        // Cambodia
+        "LC Phnom Penh": {
+            iGV: "https://docs.google.com/spreadsheets/d/cam-pp-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/cam-pp-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/cam-pp-igte-2024"
+        },
+        "LC Siem Reap": {
+            iGV: "https://docs.google.com/spreadsheets/d/cam-sr-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/cam-sr-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/cam-sr-igte-2024"
+        },
+        // Hong Kong
+        "LC Hong Kong": {
+            iGV: "https://docs.google.com/spreadsheets/d/hk-hk-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/hk-hk-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/hk-hk-igte-2024"
+        },
+        "LC Kowloon": {
+            iGV: "https://docs.google.com/spreadsheets/d/hk-kowloon-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/hk-kowloon-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/hk-kowloon-igte-2024"
+        },
+        // India
+        "LC Delhi": {
+            iGV: "https://docs.google.com/spreadsheets/d/in-delhi-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/in-delhi-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/in-delhi-igte-2024"
+        },
+        "LC Mumbai": {
+            iGV: "https://docs.google.com/spreadsheets/d/in-mumbai-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/in-mumbai-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/in-mumbai-igte-2024"
+        },
+        "LC Bangalore": {
+            iGV: "https://docs.google.com/spreadsheets/d/in-blr-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/in-blr-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/in-blr-igte-2024"
+        },
+        "LC Chennai": {
+            iGV: "https://docs.google.com/spreadsheets/d/in-chennai-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/in-chennai-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/in-chennai-igte-2024"
+        },
+        // Indonesia
+        "LC Jakarta": {
+            iGV: "https://docs.google.com/spreadsheets/d/id-jkt-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/id-jkt-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/id-jkt-igte-2024"
+        },
+        "LC Bandung": {
+            iGV: "https://docs.google.com/spreadsheets/d/id-bdg-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/id-bdg-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/id-bdg-igte-2024"
+        },
+        "LC Surabaya": {
+            iGV: "https://docs.google.com/spreadsheets/d/id-sby-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/id-sby-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/id-sby-igte-2024"
+        },
+        // Japan
+        "LC Tokyo": {
+            iGV: "https://docs.google.com/spreadsheets/d/jp-tokyo-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/jp-tokyo-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/jp-tokyo-igte-2024"
+        },
+        "LC Osaka": {
+            iGV: "https://docs.google.com/spreadsheets/d/jp-osaka-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/jp-osaka-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/jp-osaka-igte-2024"
+        },
+        "LC Kyoto": {
+            iGV: "https://docs.google.com/spreadsheets/d/jp-kyoto-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/jp-kyoto-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/jp-kyoto-igte-2024"
+        },
+        // Korea
+        "LC Seoul": {
+            iGV: "https://docs.google.com/spreadsheets/d/kr-seoul-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/kr-seoul-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/kr-seoul-igte-2024"
+        },
+        "LC Busan": {
+            iGV: "https://docs.google.com/spreadsheets/d/kr-busan-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/kr-busan-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/kr-busan-igte-2024"
+        },
+        // Mainland of China
+        "LC Beijing": {
+            iGV: "https://docs.google.com/spreadsheets/d/cn-beijing-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/cn-beijing-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/cn-beijing-igte-2024"
+        },
+        "LC Shanghai": {
+            iGV: "https://docs.google.com/spreadsheets/d/cn-shanghai-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/cn-shanghai-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/cn-shanghai-igte-2024"
+        },
+        "LC Guangzhou": {
+            iGV: "https://docs.google.com/spreadsheets/d/cn-guangzhou-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/cn-guangzhou-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/cn-guangzhou-igte-2024"
+        },
+        // Malaysia
+        "LC Kuala Lumpur": {
+            iGV: "https://docs.google.com/spreadsheets/d/my-kl-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/my-kl-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/my-kl-igte-2024"
+        },
+        "LC Penang": {
+            iGV: "https://docs.google.com/spreadsheets/d/my-pg-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/my-pg-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/my-pg-igte-2024"
+        },
+        // Mongolia
+        "LC Ulaanbaatar": {
+            iGV: "https://docs.google.com/spreadsheets/d/mn-ub-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/mn-ub-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/mn-ub-igte-2024"
+        },
+        // Myanmar
+        "LC Yangon": {
+            iGV: "https://docs.google.com/spreadsheets/d/mm-ygn-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/mm-ygn-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/mm-ygn-igte-2024"
+        },
+        "LC Mandalay": {
+            iGV: "https://docs.google.com/spreadsheets/d/mm-mdy-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/mm-mdy-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/mm-mdy-igte-2024"
+        },
+        // Nepal
+        "LC Kathmandu": {
+            iGV: "https://docs.google.com/spreadsheets/d/np-ktm-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/np-ktm-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/np-ktm-igte-2024"
+        },
+        "LC Pokhara": {
+            iGV: "https://docs.google.com/spreadsheets/d/np-pkr-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/np-pkr-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/np-pkr-igte-2024"
+        },
+        // New Zealand
+        "LC Auckland": {
+            iGV: "https://docs.google.com/spreadsheets/d/nz-akl-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/nz-akl-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/nz-akl-igte-2024"
+        },
+        "LC Wellington": {
+            iGV: "https://docs.google.com/spreadsheets/d/nz-wlg-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/nz-wlg-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/nz-wlg-igte-2024"
+        },
+        // Pakistan
+        "LC Karachi": {
+            iGV: "https://docs.google.com/spreadsheets/d/pk-khi-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/pk-khi-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/pk-khi-igte-2024"
+        },
+        "LC Lahore": {
+            iGV: "https://docs.google.com/spreadsheets/d/pk-lhe-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/pk-lhe-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/pk-lhe-igte-2024"
+        },
+        "LC Islamabad": {
+            iGV: "https://docs.google.com/spreadsheets/d/pk-isb-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/pk-isb-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/pk-isb-igte-2024"
+        },
+        // Philippines
+        "LC Manila": {
+            iGV: "https://docs.google.com/spreadsheets/d/ph-mnl-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/ph-mnl-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/ph-mnl-igte-2024"
+        },
+        "LC Cebu": {
+            iGV: "https://docs.google.com/spreadsheets/d/ph-ceb-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/ph-ceb-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/ph-ceb-igte-2024"
+        },
+        // Singapore
+        "LC Singapore": {
+            iGV: "https://docs.google.com/spreadsheets/d/sg-sg-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/sg-sg-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/sg-sg-igte-2024"
+        },
+        // Sri Lanka
+        "LC Colombo": {
+            iGV: "https://docs.google.com/spreadsheets/d/lk-cmb-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/lk-cmb-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/lk-cmb-igte-2024"
+        },
+        "LC Kandy": {
+            iGV: "https://docs.google.com/spreadsheets/d/lk-kandy-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/lk-kandy-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/lk-kandy-igte-2024"
+        },
+        // Taiwan
+        "LC Taipei": {
+            iGV: "https://docs.google.com/spreadsheets/d/tw-tpe-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tw-tpe-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tw-tpe-igte-2024"
+        },
+        "LC Kaohsiung": {
+            iGV: "https://docs.google.com/spreadsheets/d/tw-khh-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tw-khh-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tw-khh-igte-2024"
+        },
+        // Thailand
+        "LC Bangkok": {
+            iGV: "https://docs.google.com/spreadsheets/d/th-bkk-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/th-bkk-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/th-bkk-igte-2024"
+        },
+        "LC Chiang Mai": {
+            iGV: "https://docs.google.com/spreadsheets/d/th-cnx-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/th-cnx-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/th-cnx-igte-2024"
+        },
+        "LC Phuket": {
+            iGV: "https://docs.google.com/spreadsheets/d/th-hkt-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/th-hkt-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/th-hkt-igte-2024"
+        },
+        // Vietnam
+        "LC Hanoi": {
+            iGV: "https://docs.google.com/spreadsheets/d/vn-han-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/vn-han-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/vn-han-igte-2024"
+        },
+        "LC Ho Chi Minh": {
+            iGV: "https://docs.google.com/spreadsheets/d/vn-sgn-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/vn-sgn-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/vn-sgn-igte-2024"
+        },
+        // Turkey
+        "LC Ankara": {
+            iGV: "https://docs.google.com/spreadsheets/d/tr-ank-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tr-ank-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tr-ank-igte-2024"
+        },
+        "LC Istanbul": {
+            iGV: "https://docs.google.com/spreadsheets/d/tr-ist-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tr-ist-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tr-ist-igte-2024"
+        },
+        "LC Izmir": {
+            iGV: "https://docs.google.com/spreadsheets/d/tr-izmir-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tr-izmir-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tr-izmir-igte-2024"
+        },
+        "LC Adana": {
+            iGV: "https://docs.google.com/spreadsheets/d/tr-ada-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tr-ada-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tr-ada-igte-2024"
+        },
+        // Egypt
+        "LC Cairo": {
+            iGV: "https://docs.google.com/spreadsheets/d/eg-cai-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/eg-cai-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/eg-cai-igte-2024"
+        },
+        "LC Alexandria": {
+            iGV: "https://docs.google.com/spreadsheets/d/eg-alx-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/eg-alx-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/eg-alx-igte-2024"
+        },
+        "LC Giza": {
+            iGV: "https://docs.google.com/spreadsheets/d/eg-giz-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/eg-giz-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/eg-giz-igte-2024"
+        },
+        // Kuwait
+        "LC Kuwait City": {
+            iGV: "https://docs.google.com/spreadsheets/d/kw-kwi-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/kw-kwi-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/kw-kwi-igte-2024"
+        },
+        // UAE
+        "LC Dubai": {
+            iGV: "https://docs.google.com/spreadsheets/d/ae-dxb-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/ae-dxb-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/ae-dxb-igte-2024"
+        },
+        "LC Abu Dhabi": {
+            iGV: "https://docs.google.com/spreadsheets/d/ae-auh-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/ae-auh-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/ae-auh-igte-2024"
+        },
+        // Uganda
+        "LC Kampala": {
+            iGV: "https://docs.google.com/spreadsheets/d/ug-kla-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/ug-kla-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/ug-kla-igte-2024"
+        },
+        // Tanzania
+        "LC Dar es Salaam": {
+            iGV: "https://docs.google.com/spreadsheets/d/tz-dar-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tz-dar-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tz-dar-igte-2024"
+        },
+        "LC Zanzibar": {
+            iGV: "https://docs.google.com/spreadsheets/d/tz-zanz-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/tz-zanz-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/tz-zanz-igte-2024"
+        },
+        // Brazil
+        "LC São Paulo": {
+            iGV: "https://docs.google.com/spreadsheets/d/br-sp-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/br-sp-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/br-sp-igte-2024"
+        },
+        "LC Rio": {
+            iGV: "https://docs.google.com/spreadsheets/d/br-rio-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/br-rio-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/br-rio-igte-2024"
+        },
+        "LC Belo Horizonte": {
+            iGV: "https://docs.google.com/spreadsheets/d/br-bhz-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/br-bhz-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/br-bhz-igte-2024"
+        },
+        // USA
+        "LC New York": {
+            iGV: "https://docs.google.com/spreadsheets/d/us-nyc-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/us-nyc-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/us-nyc-igte-2024"
+        },
+        "LC San Francisco": {
+            iGV: "https://docs.google.com/spreadsheets/d/us-sfo-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/us-sfo-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/us-sfo-igte-2024"
+        },
+        "LC Chicago": {
+            iGV: "https://docs.google.com/spreadsheets/d/us-chi-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/us-chi-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/us-chi-igte-2024"
+        },
+        "LC Boston": {
+            iGV: "https://docs.google.com/spreadsheets/d/us-bos-igv-2024",
+            iGTa: "https://docs.google.com/spreadsheets/d/us-bos-igta-2024",
+            iGTe: "https://docs.google.com/spreadsheets/d/us-bos-igte-2024"
+        }
+    };
+
     // ---------- BUILD COUNTRY BUTTONS AND LC CONTAINERS ----------
     const countryBtnContainer = document.getElementById('countryBtnContainer');
     const lcDynamicContainer = document.getElementById('lc-dynamic-container');
 
-    // Clear any placeholder
     countryBtnContainer.innerHTML = '';
     lcDynamicContainer.innerHTML = '';
 
@@ -57,38 +445,34 @@
         // button
         const btn = document.createElement('button');
         btn.className = 'country-btn';
-        if (index === 0) btn.classList.add('active'); // first active
+        if (index === 0) btn.classList.add('active');
         btn.setAttribute('data-country', country);
         btn.textContent = country;
         countryBtnContainer.appendChild(btn);
 
-        // create a container for this country's LCs (hidden by default)
+        // container for this country's LCs (hidden by default)
         const countryDiv = document.createElement('div');
         countryDiv.id = `country-${country.replace(/\s+/g, '-')}`;
         countryDiv.className = 'lc-container';
-        countryDiv.style.display = index === 0 ? 'block' : 'none'; // show first
+        countryDiv.style.display = index === 0 ? 'block' : 'none';
 
-        // build LC buttons for this country
-        const lcs = countryLCs[country] || [`LC ${country} Main`, `LC ${country} North`]; // fallback
-
-        // create grid for LCs
+        // build LC buttons
+        const lcs = countryLCs[country] || [`LC ${country} Main`, `LC ${country} North`];
         const lcGrid = document.createElement('div');
         lcGrid.className = 'lc-grid';
         lcs.forEach(lcName => {
             const lcBtn = document.createElement('button');
             lcBtn.className = 'lc-btn';
-            // placeholder link – in practice you'd set real google sheet links. We'll use a fake link with LC name.
-            lcBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/${lcName.replace(/\s+/g,'')}`);
+            lcBtn.setAttribute('data-lcname', lcName);
             lcBtn.textContent = lcName;
             lcGrid.appendChild(lcBtn);
         });
         countryDiv.appendChild(lcGrid);
 
-        // create iGV / iGT panel (will be filled by JS when an LC is clicked)
+        // iGX panel (will be populated on LC click)
         const igxPanel = document.createElement('div');
         igxPanel.className = 'igx-panel';
         igxPanel.id = `igx-${country.replace(/\s+/g, '-')}`;
-        // initially empty, will be populated on LC click
         countryDiv.appendChild(igxPanel);
 
         lcDynamicContainer.appendChild(countryDiv);
@@ -105,7 +489,6 @@
         const activeDiv = document.getElementById(`country-${countryName.replace(/\s+/g, '-')}`);
         if (activeDiv) activeDiv.style.display = 'block';
 
-        // update button active class
         countryBtns.forEach(btn => {
             btn.classList.remove('active');
             if (btn.getAttribute('data-country') === countryName) {
@@ -121,58 +504,75 @@
         });
     });
 
-    // ---------- LC CLICK: SHOW iGV / iGT BUTTONS (with google sheet links) ----------
-    // This function replaces the igx-panel with two buttons: iGV and iGT
+    // ---------- LC CLICK: show iGV / iGTa / iGTe buttons with UNIQUE LINKS ----------
     function setupLcClickHandlers() {
         document.querySelectorAll('.lc-btn').forEach(lcBtn => {
             lcBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // avoid interfering with redirect if needed
+                e.stopPropagation();
                 const lcName = e.target.textContent;
-                // find parent country container
                 const countryContainer = e.target.closest('.lc-container');
                 if (!countryContainer) return;
                 const igxPanel = countryContainer.querySelector('.igx-panel');
                 if (!igxPanel) return;
 
-                // Clear previous igx buttons
+                // Remove active class from all LC buttons in this country
+                countryContainer.querySelectorAll('.lc-btn').forEach(btn => {
+                    btn.classList.remove('active-lc');
+                });
+                // Add active class to clicked LC
+                e.target.classList.add('active-lc');
+
+                // Clear previous iGX buttons (replace, not append)
                 igxPanel.innerHTML = '';
 
-                // Create iGV button with google sheets link (manually set later)
+                // Create iGV button
                 const igvBtn = document.createElement('button');
                 igvBtn.className = 'igx-btn igv';
                 igvBtn.textContent = 'iGV';
-                // Set link — you can change these per LC as needed. Currently generic.
-                igvBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/iGV-${lcName.replace(/\s+/g,'')}`);
 
-                // Create iGT button
-                const igtBtn = document.createElement('button');
-                igtBtn.className = 'igx-btn igt';
-                igtBtn.textContent = 'iGT';
-                igtBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/iGT-${lcName.replace(/\s+/g,'')}`);
+                // Create iGTa button
+                const igtaBtn = document.createElement('button');
+                igtaBtn.className = 'igx-btn igta';
+                igtaBtn.textContent = 'iGTa';
 
-                // Add click redirect for iGX buttons
-                igvBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const link = igvBtn.getAttribute('data-link');
-                    if (link) window.location.href = link;
+                // Create iGTe button
+                const igteBtn = document.createElement('button');
+                igteBtn.className = 'igx-btn igte';
+                igteBtn.textContent = 'iGTe';
+
+                // Set unique links from lcProgramLinks object
+                if (lcProgramLinks[lcName]) {
+                    igvBtn.setAttribute('data-link', lcProgramLinks[lcName].iGV);
+                    igtaBtn.setAttribute('data-link', lcProgramLinks[lcName].iGTa);
+                    igteBtn.setAttribute('data-link', lcProgramLinks[lcName].iGTe);
+                } else {
+                    // Fallback for any LCs not in the object (should not happen with our complete list)
+                    igvBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/fallback-igv-${lcName.replace(/\s+/g,'')}`);
+                    igtaBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/fallback-igta-${lcName.replace(/\s+/g,'')}`);
+                    igteBtn.setAttribute('data-link', `https://docs.google.com/spreadsheets/d/fallback-igte-${lcName.replace(/\s+/g,'')}`);
+                }
+
+                // Add click redirect for each
+                [igvBtn, igtaBtn, igteBtn].forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const link = btn.getAttribute('data-link');
+                        if (link) window.location.href = link;
+                    });
                 });
-                igtBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const link = igtBtn.getAttribute('data-link');
-                    if (link) window.location.href = link;
-                });
 
+                // Append all three
                 igxPanel.appendChild(igvBtn);
-                igxPanel.appendChild(igtBtn);
+                igxPanel.appendChild(igtaBtn);
+                igxPanel.appendChild(igteBtn);
             });
         });
     }
 
-    // Also need to attach handlers to dynamically created LC buttons.
-    // We'll call this after initial render, and also after any potential future changes.
+    // Initial setup
     setupLcClickHandlers();
 
-    // ---------- REDIRECT HANDLER for any button with data-link (global) ----------
+    // ---------- REDIRECT HANDLER for other buttons (action, step) ----------
     function handleRedirect(event) {
         const btn = event.currentTarget;
         const link = btn.getAttribute('data-link');
@@ -183,30 +583,8 @@
         }
     }
 
-    // Attach to all existing and future .lc-btn, .action-btn, .step, .igx-btn? we added listeners separately for igx, but also attach generic.
-    // We'll attach to .action-btn, .step, and also .lc-btn but lc already has custom; we can also attach but it's ok.
     document.querySelectorAll('.action-btn, .step').forEach(btn => {
         btn.addEventListener('click', handleRedirect);
     });
-
-    // Re-attach LC handler after any potential dynamic changes (but we already set on existing ones)
-    // Since we set directly, it's fine. But we also need to ensure newly created LC buttons get the redirect?
-    // They already have custom listener to show iGX. But what if we also want them to redirect on click? They currently only show iGX, not redirect. The request: "when i click LC then it will show iGV and iGT". So redirect only happens when clicking iGV/iGT, not the LC itself. So lc-btn only shows iGX, doesn't redirect. We'll keep it that way.
-    // However we might still want the original LC button to also have a link? Probably not. So we remove redirect from LC click.
-
-    // But also we want the iGX buttons to redirect, which we added directly. Good.
-
-    // Ensure any .igx-btn created later also get redirect? They are created in lc click, and we added listeners at creation time. Good.
-
-    // small additional: to keep consistency, attach redirect to all .action-btn and .step (already done).
-
-    // Also ensure calculator, quick access etc work — they are .action-btn.
-
-    // additional: if any lc-btn accidentally gets global redirect, we remove by not attaching handleRedirect to .lc-btn. Good.
-
-    // Now ensure first country is shown correctly
-    // Already first is visible due to style inline.
-
-    // Also fix for first load: the first country's LCs exist, but need iGV/iGT panel empty until LC click. That's fine.
 
 })();
