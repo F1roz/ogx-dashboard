@@ -15,7 +15,6 @@
     // For demo, each country gets 2–4 LCs. For countries not specified, we add generic ones.
     const countryLCs = {
         "Australia": ["LC Sydney", "LC Melbourne", "LC Brisbane"],
-        "Bangladesh": ["LC Dhaka", "LC Chittagong", "LC NSU"],
         "Cambodia": ["LC Phnom Penh", "LC Siem Reap"],
         "Hong Kong": ["LC Hong Kong", "LC Kowloon"],
         "India": ["LC Delhi", "LC Mumbai", "LC Bangalore", "LC Chennai"],
