@@ -3,7 +3,7 @@
 (function() {
     // ---------- MASTER COUNTRY LIST (exactly as provided) ----------
     const countryList = [
-        "Australia", "Bangladesh", "Cambodia", "Hong Kong", "India",
+        "Australia", "Cambodia", "Hong Kong", "India",
         "Indonesia", "Japan", "Korea", "Mainland of China", "Malaysia",
         "Mongolia", "Myanmar", "Nepal", "New Zealand", "Pakistan",
         "Philippines", "Singapore", "Sri Lanka", "Taiwan", "Thailand",
