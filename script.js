@@ -3,7 +3,7 @@
 (function() {
     // ---------- MASTER COUNTRY LIST ----------
     const countryList = [
-        "Australia", "Bangladesh", "Cambodia", "Hong Kong", "India",
+        "Australia", "Cambodia", "Hong Kong", "India",
         "Indonesia", "Japan", "Korea", "Mainland of China", "Malaysia",
         "Mongolia", "Myanmar", "Nepal", "New Zealand", "Pakistan",
         "Philippines", "Singapore", "Sri Lanka", "Taiwan", "Thailand",
@@ -14,7 +14,6 @@
     // ---------- LC DATA ----------
     const countryLCs = {
         "Australia": ["LC Sydney", "LC Melbourne", "LC Brisbane"],
-        "Bangladesh": ["LC Dhaka", "LC Chittagong", "LC NSU", "LC AIUB", "LC North South"],
         "Cambodia": ["LC Phnom Penh", "LC Siem Reap"],
         "Hong Kong": ["LC Hong Kong", "LC Kowloon"],
         "India": ["LC Delhi", "LC Mumbai", "LC Bangalore", "LC Chennai"],
@@ -61,32 +60,6 @@
             iGV: "https://docs.google.com/spreadsheets/d/3brisbane-igv-2024-dummy",
             iGTa: "https://docs.google.com/spreadsheets/d/3brisbane-igta-2024-dummy",
             iGTe: "https://docs.google.com/spreadsheets/d/3brisbane-igte-2024-dummy"
-        },
-        // Bangladesh
-        "LC Dhaka": {
-            iGV: "https://docs.google.com/spreadsheets/d/bd-dhaka-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/bd-dhaka-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/bd-dhaka-igte-2024"
-        },
-        "LC Chittagong": {
-            iGV: "https://docs.google.com/spreadsheets/d/bd-ctg-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/bd-ctg-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/bd-ctg-igte-2024"
-        },
-        "LC NSU": {
-            iGV: "https://docs.google.com/spreadsheets/d/bd-nsu-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/bd-nsu-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/bd-nsu-igte-2024"
-        },
-        "LC AIUB": {
-            iGV: "https://docs.google.com/spreadsheets/d/bd-aiub-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/bd-aiub-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/bd-aiub-igte-2024"
-        },
-        "LC North South": {
-            iGV: "https://docs.google.com/spreadsheets/d/bd-northsouth-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/bd-northsouth-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/bd-northsouth-igte-2024"
         },
         // Cambodia
         "LC Phnom Penh": {
