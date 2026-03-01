@@ -1,4 +1,4 @@
-/* style.css - fully mobile‑first with responsive enhancements */
+/* style.css - with compact Recognition & Rewards card (smaller width) */
 
 * {
     margin: 0;
@@ -11,7 +11,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #1e2b3c;
     line-height: 1.5;
-    padding: 16px 12px; /* reduced padding on mobile */
+    padding: 16px 12px;
 }
 
 .dashboard-container {
@@ -27,19 +27,19 @@ body {
     margin-bottom: 24px;
     background: white;
     padding: 12px 18px;
-    border-radius: 32px; /* slightly smaller for mobile */
+    border-radius: 32px;
     box-shadow: 0 8px 18px -6px rgba(0, 70, 150, 0.08);
     border: 1px solid rgba(0, 105, 180, 0.1);
-    flex-wrap: wrap; /* allow wrapping on very small screens */
+    flex-wrap: wrap;
 }
 
 .header img {
-    height: 40px; /* smaller logo on mobile */
+    height: 40px;
     width: auto;
 }
 
 .header h1 {
-    font-size: 1.5rem;  /* reduced from 1.9rem */
+    font-size: 1.5rem;
     font-weight: 600;
     color: #0a2942;
     letter-spacing: -0.02em;
@@ -48,15 +48,15 @@ body {
 
 .header h1 small {
     font-weight: 400;
-    font-size: 0.85rem; /* smaller subtext */
+    font-size: 0.85rem;
     color: #4f6f8f;
     margin-left: 8px;
-    display: inline-block; /* keeps inline on mobile */
+    display: inline-block;
 }
 
 /* ----- section titles (mobile padding) ----- */
 .section-title {
-    font-size: 1.4rem;  /* down from 1.5rem */
+    font-size: 1.4rem;
     font-weight: 600;
     margin: 28px 0 16px 0;
     display: flex;
@@ -71,29 +71,29 @@ body {
 /* ----- KPI cards (grid adapts automatically) ----- */
 .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* smaller min on mobile */
-    gap: 14px; /* reduced gap */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
     margin-bottom: 16px;
 }
 
 .stat-card {
     background: white;
-    border-radius: 24px;  /* slightly smaller radius */
-    padding: 16px 10px;   /* reduced padding */
+    border-radius: 24px;
+    padding: 16px 10px;
     box-shadow: 0 5px 16px rgba(0, 45, 80, 0.05);
     border: 1px solid #eef3fa;
     text-align: center;
 }
 
 .stat-number {
-    font-size: 2.2rem;    /* down from 2.7rem */
+    font-size: 2.2rem;
     font-weight: 700;
     color: #0a2a44;
     line-height: 1.2;
 }
 
 .stat-label {
-    font-size: 0.85rem;   /* smaller */
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: #4d6a88;
@@ -103,8 +103,8 @@ body {
 /* ----- Country panel (full width) ----- */
 .country-panel {
     background: white;
-    border-radius: 28px;   /* unified */
-    padding: 20px 16px;    /* less padding on sides */
+    border-radius: 28px;
+    padding: 20px 16px;
     box-shadow: 0 6px 22px rgba(0,0,0,0.02);
     border: 1px solid #e0ecf9;
     margin-bottom: 24px;
@@ -113,33 +113,32 @@ body {
 .country-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;            /* smaller gap */
+    gap: 10px;
     margin-bottom: 20px;
-    justify-content: center; /* center on small screens */
+    justify-content: center;
 }
 
 .country-btn {
     background: #e2edfb;
     border: none;
-    padding: 10px 20px;    /* smaller padding */
+    padding: 10px 20px;
     border-radius: 40px;
     font-weight: 600;
-    font-size: 0.95rem;    /* base size */
+    font-size: 0.95rem;
     color: #1a4972;
     cursor: pointer;
     transition: 0.15s;
     border: 1px solid transparent;
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    flex: 0 1 auto;        /* allow shrinking */
-    white-space: nowrap;   /* keep text in one line */
+    flex: 0 1 auto;
+    white-space: nowrap;
 }
 
-/* on very small screens, allow buttons to wrap and take more width */
 @media (max-width: 480px) {
     .country-btn {
         padding: 8px 14px;
         font-size: 0.9rem;
-        white-space: normal;  /* wrap if needed */
+        white-space: normal;
     }
 }
 
@@ -164,7 +163,7 @@ body {
 
 .lc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 10px;
     margin-bottom: 16px;
 }
@@ -172,7 +171,7 @@ body {
 .lc-btn {
     background: white;
     border: 1px solid #cbdbe9;
-    padding: 14px 6px;      /* adjusted */
+    padding: 14px 6px;
     border-radius: 26px;
     font-weight: 500;
     color: #113355;
@@ -181,7 +180,7 @@ body {
     transition: 0.1s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     text-align: center;
-    word-break: break-word; /* prevent overflow */
+    word-break: break-word;
 }
 
 .lc-btn:hover {
@@ -190,7 +189,6 @@ body {
     color: white;
 }
 
-/* iGX panel (iGV / iGT buttons) */
 .igx-panel {
     display: flex;
     flex-wrap: wrap;
@@ -205,17 +203,17 @@ body {
 .igx-btn {
     background: white;
     border: 2px solid #1b5a8c;
-    padding: 14px 30px;      /* slightly reduced */
+    padding: 14px 30px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1.2rem;       /* slightly smaller */
+    font-size: 1.2rem;
     color: #0a2a44;
     cursor: pointer;
     transition: 0.1s;
-    min-width: 160px;        /* adjusted for mobile */
+    min-width: 160px;
     box-shadow: 0 4px 8px rgba(0,60,120,0.1);
-    flex: 1 1 auto;          /* allow buttons to grow/shrink */
-    max-width: 280px;        /* prevent too wide */
+    flex: 1 1 auto;
+    max-width: 280px;
 }
 
 .igx-btn.igv { background: #c2e0ff; }
@@ -229,13 +227,13 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     margin: 12px 0 16px 0;
-    justify-content: center; /* center on mobile */
+    justify-content: center;
 }
 
 .action-btn {
     background: white;
     border: 1px solid #d1e2f2;
-    padding: 12px 22px;      /* reduced */
+    padding: 12px 22px;
     border-radius: 50px;
     font-weight: 500;
     color: #1e4972;
@@ -250,13 +248,12 @@ body {
     white-space: nowrap;
 }
 
-/* on very small, let them wrap */
 @media (max-width: 500px) {
     .action-btn {
         white-space: normal;
         text-align: left;
         padding: 10px 16px;
-        flex: 1 1 auto;       /* take full width on tiny screens? */
+        flex: 1 1 auto;
     }
     .button-grid {
         flex-direction: column;
@@ -281,36 +278,50 @@ body {
 }
 .special-btn:hover { background: #12344d; }
 
-/* ----- R&R highlight card (mobile padding) ----- */
+/* ===== IMPROVED Recognition & Rewards card (smaller, more compact) ===== */
 .spotlight-card {
     background: linear-gradient(145deg, #fffbf0, #ffffff);
     border: 2px solid #f5cf7b;
-    border-radius: 32px;        /* consistent */
-    padding: 22px 18px;         /* less on sides */
+    border-radius: 32px;
+    padding: 24px 24px;          /* uniform padding */
     box-shadow: 0 15px 25px -8px rgba(210, 160, 30, 0.15);
-    margin: 24px 0 24px 0;
+    margin: 24px auto 24px auto; /* center with auto margins */
+    max-width: 700px;            /* key: smaller max width */
+    width: 100%;                 /* but still fluid on small screens */
+}
+
+/* make inner content tighter */
+.spotlight-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #a16613;
 }
 
 .gold-name {
-    font-size: 1.8rem;          /* down from 2.2rem */
+    font-size: 1.8rem;
     font-weight: 700;
     color: #a56b1a;
-    margin: 8px 0 6px 0;
+    margin: 8px 0 4px 0;
     word-break: break-word;
+    line-height: 1.2;
 }
 
 .achievement-tag {
     background: #faeec9;
-    padding: 6px 16px;
+    padding: 6px 18px;
     border-radius: 60px;
     display: inline-block;
-    margin: 8px 0;
+    margin: 8px 0 8px 0;
     font-size: 0.95rem;
+    font-style: italic;
 }
 
+/* hall of fame table style (cleaner) */
 .hall-list {
     list-style: none;
     margin-top: 20px;
+    border-top: 1px dashed #e6c27a;
+    padding-top: 16px;
 }
 
 .hall-list li {
@@ -318,11 +329,33 @@ body {
     padding: 8px 0;
     border-bottom: 1px solid #f0d9b0;
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;            /* avoid overlap on small */
+    gap: 20px;
+    align-items: center;
 }
 
-.hall-list strong { color: #926d2b; }
+.hall-list strong {
+    color: #926d2b;
+    min-width: 70px;            /* align week numbers */
+    font-weight: 700;
+}
+
+/* optional divider style */
+.spotlight-card hr {
+    border: none;
+    border-top: 2px dashed #f5cf7b;
+    margin: 20px 0;
+}
+
+/* small screens: card stays compact but full width */
+@media (max-width: 750px) {
+    .spotlight-card {
+        max-width: 95%;          /* near full width on mobile, but still nice */
+        padding: 20px 16px;
+    }
+    .gold-name {
+        font-size: 1.6rem;
+    }
+}
 
 /* announcements & process flow */
 .announce-card {
@@ -340,7 +373,7 @@ body {
 .announce-list li {
     margin: 12px 0;
     display: flex;
-    align-items: flex-start;    /* align to top */
+    align-items: flex-start;
     gap: 12px;
     font-size: 0.95rem;
 }
@@ -348,10 +381,9 @@ body {
 .announce-list li::before {
     content: "📢";
     font-size: 1.1rem;
-    flex-shrink: 0;             /* keep icon stable */
+    flex-shrink: 0;
 }
 
-/* process flow steps */
 .process-row {
     display: flex;
     flex-wrap: wrap;
@@ -365,7 +397,7 @@ body {
 
 .step {
     background: #edf4fd;
-    padding: 12px 22px;         /* reduced */
+    padding: 12px 22px;
     border-radius: 50px;
     font-weight: 600;
     color: #113355;
@@ -376,7 +408,6 @@ body {
     white-space: nowrap;
 }
 
-/* on small, allow steps to wrap and take more space */
 @media (max-width: 550px) {
     .step {
         white-space: normal;
@@ -407,7 +438,7 @@ body {
         padding: 12px 6px;
     }
     .lc-grid {
-        grid-template-columns: 1fr;  /* stack LCs */
+        grid-template-columns: 1fr;
     }
     .igx-btn {
         min-width: 100%;
@@ -417,7 +448,7 @@ body {
         font-size: 1.3rem;
     }
     .gold-name {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -426,13 +457,7 @@ img, button, .country-btn, .lc-btn, .igx-btn, .action-btn, .step {
     max-width: 100%;
 }
 
-/* touch-friendly tap targets */
 button, .country-btn, .lc-btn, .igx-btn, .action-btn, .step {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-}
-
-/* extra spacing for readability */
-.lc-container, .country-panel, .announce-card, .spotlight-card {
-    word-wrap: break-word;
 }
