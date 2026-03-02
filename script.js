@@ -85,7 +85,7 @@
         },
         // India
         "LC Delhi": {
-            iGV: "https://docs.google.com/spreadsheets/d/in-delhi-igv-2024",
+            iGV: "https://docs.google.com/spreadsheets/d/1j6D8t-HRdbC5WMyV78v47rJTMjgiEObHhiDPn97D2mA/edit?gid=1267931405#gid=1267931405",
             iGTa: "https://docs.google.com/spreadsheets/d/in-delhi-igta-2024",
             iGTe: "https://docs.google.com/spreadsheets/d/in-delhi-igte-2024"
         },
