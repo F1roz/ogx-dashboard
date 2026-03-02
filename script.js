@@ -133,13 +133,32 @@
             iGTa:"",
             iGTe:""
          },
-
+        //Sri Lanka
          "LC Colombo": {
             iGV: "https://sites.google.com/aiesec.net/volunteerwithcn/home",
             iGTa:"https://sites.google.com/aiesec.net/volunteerwithcn/home",
             iGTe:"https://sites.google.com/aiesec.net/volunteerwithcn/home"
+         }, 
+        
+        // Egypt
+
+        "LC Cairo": {
+            iGV: "https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTa:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTe:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031"
          },
 
+         "LC Alexandria": {
+            iGV: "https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTa:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTe:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031"
+         },
+
+         "LC Giza": {
+            iGV: "https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTa:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
+            iGTe:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031"
+         },
 
     };
 
