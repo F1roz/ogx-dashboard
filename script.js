@@ -130,7 +130,7 @@
         },
          "LC Izmir": {
             iGV: "https://docs.google.com/spreadsheets/d/1gTpQi_RFrIW6MZ93vBk936R3ac27m0UrzlT0Ce0oEhk/edit?gid=0#gid=0",
-            iGTa:""
+            iGTa:"",
             iGTe:""
          },
     };
