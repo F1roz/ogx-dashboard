@@ -124,7 +124,7 @@
         // For complete list, use the full lcProgramLinks object from previous version
          // Turkey
          "LC Adana": {
-            iGV: "https://docs.google.com/spreadsheets/d/1sydney-igv-2024-dummy",
+            iGV: "https://docs.google.com/spreadsheets/d/1Ysx2WUxP-L1vRG_JdyHA5aSTijsgjbOQ1kKFet46j4g/edit?gid=154606355#gid=154606355",
             iGTa: "https://docs.google.com/spreadsheets/d/1drAMQaVWYPDwJ-5ekMYfErgVdSO0KFqRYxfMTOYADI4/edit?gid=2096229659#gid=2096229659",
             iGTe: "https://docs.google.com/spreadsheets/d/1sydney-igte-2024-dummy"
         },
