@@ -133,6 +133,14 @@
             iGTa:"",
             iGTe:""
          },
+
+         "LC Colombo": {
+            iGV: "https://sites.google.com/aiesec.net/volunteerwithcn/home",
+            iGTa:"https://sites.google.com/aiesec.net/volunteerwithcn/home",
+            iGTe:"https://sites.google.com/aiesec.net/volunteerwithcn/home"
+         },
+
+
     };
 
     // Add fallback for any missing LCs

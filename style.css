@@ -517,6 +517,40 @@ body {
         font-size: 1.5rem;
     }
 }
+.custom-footer {
+    background-color: rgb(247, 247, 247);
+    color: rgb(6, 6, 6);
+    padding: 30px 10px;
+    margin-top: 40px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-logo {
+    width: 60px;
+  }
+  
+  .footer-middle h3 {
+    margin: 0;
+  }
+  
+  .footer-right a {
+    display: block;
+    color: rgb(8, 8, 8);
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+  
+  .footer-right a:hover {
+    text-decoration: underline;
+  }
 
 /* Utility classes */
 img, button, .country-btn, .lc-btn, .igx-btn, .action-btn, .step {
