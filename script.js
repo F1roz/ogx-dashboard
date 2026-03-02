@@ -9,7 +9,7 @@
         "Philippines", "Singapore", "Sri Lanka", "Taiwan", "Thailand",
         "Vietnam", "Turkey", "Egypt", "Kuwait", "UAE", "Uganda", "Tanzania",
         "Brazil", "USA"
-    ];
+    ].sort((a, b) => a.localeCompare(b));
 
     // ---------- LC DATA ----------
     const countryLCs = {
