@@ -3,12 +3,25 @@
 (function() {
     // ---------- MASTER COUNTRY LIST ----------
     const countryList = [
-        "Australia", "Cambodia", "Hong Kong", "India",
-        "Indonesia", "Japan", "Korea", "Mainland of China", "Malaysia",
-        "Mongolia", "Myanmar", "Nepal", "New Zealand", "Pakistan",
-        "Philippines", "Singapore", "Sri Lanka", "Taiwan", "Thailand",
-        "Vietnam", "Turkey", "Egypt", "Kuwait", "UAE", "Uganda", "Tanzania",
-        "Brazil", "USA"
+        //"Australia", "Cambodia", "Hong Kong", 
+        "India",
+        "Indonesia", "Japan", 
+        //"Korea", 
+        "China", 
+        "Malaysia",
+        //"Mongolia", "Myanmar", 
+        "Nepal", 
+        //"New Zealand", 
+        "Pakistan",
+        "Philippines", 
+        //"Singapore", 
+        "Sri Lanka", 
+        //"Taiwan", 
+        "Thailand",
+        "Vietnam", "Turkey", "Egypt", 
+        //"Kuwait", "UAE", "Uganda", "Tanzania",
+        "Brazil", 
+        //"USA"
     ].sort((a, b) => a.localeCompare(b));
 
     // ---------- LC DATA ----------
