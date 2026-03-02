@@ -128,6 +128,11 @@
             iGTa: "https://docs.google.com/spreadsheets/d/1drAMQaVWYPDwJ-5ekMYfErgVdSO0KFqRYxfMTOYADI4/edit?gid=2096229659#gid=2096229659",
             // iGTe: "https://docs.google.com/spreadsheets/d/1sydney-igte-2024-dummy"
         },
+         "LC Izmir": {
+            iGV: "https://docs.google.com/spreadsheets/d/1gTpQi_RFrIW6MZ93vBk936R3ac27m0UrzlT0Ce0oEhk/edit?gid=0#gid=0",
+            iGTa:""
+            iGTe:""
+         },
     };
 
     // Add fallback for any missing LCs
