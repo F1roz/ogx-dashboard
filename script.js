@@ -276,7 +276,9 @@
                 // Redirect after a tiny delay to show active state
                 setTimeout(() => {
                     const link = btn.getAttribute('data-link');
-                    if (link) window.location.href = link;
+                    if (link) {
+                        window.open(link, '_blank', 'noopener,noreferrer');
+                    }
                 }, 100);
             });
             
