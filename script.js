@@ -244,9 +244,9 @@
 
         // Create product buttons
         const products = [
-            { type: 'igv', label: 'iGV', link: links.iGV },
-            { type: 'igta', label: 'iGTa', link: links.iGTa },
-            { type: 'igte', label: 'iGTe', link: links.iGTe }
+            { type: 'igv', label: 'Global Volunteer', link: links.iGV },
+            { type: 'igta', label: 'Global Talent', link: links.iGTa },
+            { type: 'igte', label: 'Global Teaching', link: links.iGTe }
         ];
 
         products.forEach(prod => {
