@@ -171,6 +171,26 @@
             iGV: "https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
             iGTa:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031",
             iGTe:"https://docs.google.com/spreadsheets/d/1sPopk_Dp8VbpkYNokloAvmW6aiMOVhPxYByKgjWOlMI/edit?gid=2091742031#gid=2091742031"
+         }, 
+        
+         // Indonesia
+
+        "LC Jakarta": {
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTa:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTe:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678"
+         },
+
+         "LC Bandung": {
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTa:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTe:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678"
+         },
+
+         "LC Surabaya": {
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTa:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGTe:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678"
          },
 
     };
