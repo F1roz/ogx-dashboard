@@ -176,7 +176,7 @@
          // Indonesia
 
         "LC Jakarta": {
-            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=1281710015#gid=1281710015",
             iGTa:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678",
             iGTe:"https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=925536678#gid=925536678"
          },
