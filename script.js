@@ -119,20 +119,20 @@
         },
         // Indonesia
         "LC Jakarta": {
-            iGV: "https://docs.google.com/spreadsheets/d/id-jkt-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/id-jkt-igta-2024",
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=0#gid=0",
+            iGTa: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=0#gid=04",
             iGTe: "https://docs.google.com/spreadsheets/d/id-jkt-igte-2024"
         },
         "LC Bandung": {
-            iGV: "https://docs.google.com/spreadsheets/d/id-bdg-igv-2024",
+            iGV: "https://docs.google.com/spreadsheets/d/15PwZ0QrWYf9AnCdGnwSGFBjyEd0SD0FkzZ1iVzkFdXk/edit?gid=0#gid=0",
             iGTa: "https://docs.google.com/spreadsheets/d/id-bdg-igta-2024",
             iGTe: "https://docs.google.com/spreadsheets/d/id-bdg-igte-2024"
         },
-        "LC Surabaya": {
-            iGV: "https://docs.google.com/spreadsheets/d/id-sby-igv-2024",
-            iGTa: "https://docs.google.com/spreadsheets/d/id-sby-igta-2024",
-            iGTe: "https://docs.google.com/spreadsheets/d/id-sby-igte-2024"
-        },
+        // "LC Surabaya": {
+        //     iGV: "https://docs.google.com/spreadsheets/d/id-sby-igv-2024",
+        //     iGTa: "https://docs.google.com/spreadsheets/d/id-sby-igta-2024",
+        //     iGTe: "https://docs.google.com/spreadsheets/d/id-sby-igte-2024"
+        // },
         // Add all other LCs similarly (truncated for brevity - in real file this would continue)
         // For complete list, use the full lcProgramLinks object from previous version
          // Turkey
